@@ -1,0 +1,74 @@
+
+
+World Clock Shiny App
+======
+author: Iago Lopez
+date: 23/10/2015
+
+======
+
+This app allows you to know what time is it in other parts of the world.
+
+- Zone 1 - Sidney (Australia)
+- Zone 2 - Tokyo (Japan)
+- Zone 3 - Beijing (China)
+- Zone 4 - Abu Dhabi (United Arab Emirates)
+- Zone 5 - Moscow (Rusia)
+- Zone 6 - Europe
+- Zone 7 - England
+- Zone 8 - East Coast (USA)
+- Zone 9 - West Coast (USA)
+- Zone 10 - Hawaii (USA)
+
+
+======
+You just have to input 3 things:
+- Hour
+- Minute
+- Time zone
+
+And it will give you what time it would be in the rest of the time zones with that information.
+
+For example:
+You are in England and it's 16:15, and you would like to know the time in the other time zones.
+
+
+======
+* The app gives you your local time first: 16:15
+
+And after that, the rest of the time zones.
+ 
+* Minutes don't change, so are not shown.
+
+```{r, echo=FALSE}
+n1 <- c("Hawaii","USA West Coast","USA East Coast","England",
+       "Europe","Moscow","Abu Dhabi","Beijing","Tokyo","Sidney")
+n1
+```
+
+
+
+Plotting world time-curve
+======
+
+When it's 16:15 in England
+
+```{r, echo=FALSE}
+y <- c(2.25,0.25,23.25,19.25,18.25,17.25,16.25,11.25,8.25,5.25)
+y1 <- y[10:1]
+x1 <- c(1:10)
+n1 <- c("Hawaii","USA West Coast","USA East Coast","England",
+       "Europe","Moscow","Abu Dhabi","Beijing","Tokyo","Sidney")
+par(mfrow=c(1,1),mar=c(8,5,1,1))
+plot(x1, y1, type = "l",col="red",xlab = "", ylab = "HOUR", 
+     xlim = c(1,10), ylim = c(0,24),xaxt = "n", yaxt = "n")
+axis(1, at=c(1:10),labels=n1, las=2)
+axis(2, at=c(0,2,4,6,8,10,12,14,16,18,20,22,24),
+     labels=c("0","2","4","6","8","10","12","14",
+              "16","18","20","22","24"), las=2)
+abline(v=4,untf = FALSE,col="blue")
+abline(h=16.25,untf = FALSE,col="blue")
+points(x1,y1,col = "yellow",pch=19)
+text(x=3.5,y=17.5,labels = "16:15")
+```
+
